@@ -1,3 +1,4 @@
+import React from "react";
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
@@ -30,13 +31,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "PerceptionGap AI — Detect bias in AI decisions" },
+      { title: "PerceptionGap" },
       {
         name: "description",
         content:
           "Audit AI decisions for bias and compare them against human fairness benchmarks with PerceptionGap AI.",
       },
-      { property: "og:title", content: "PerceptionGap AI" },
+      { property: "og:title", content: "PerceptionGap" },
       {
         property: "og:description",
         content: "Detect bias in AI decisions and measure the perception gap with humans.",

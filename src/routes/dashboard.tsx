@@ -11,27 +11,19 @@ import {
   RadialBarChart,
   RadialBar,
 } from "recharts";
-import {
-  TrendingDown,
-  TrendingUp,
-  Activity,
-  Users,
-  Brain,
-  ArrowRight,
-  Info,
-} from "lucide-react";
+import { TrendingDown, TrendingUp, Activity, Users, Brain, ArrowRight, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Fairness Dashboard · PerceptionGap AI" },
+      { title: "PerceptionGap" },
       {
         name: "description",
         content:
           "Visualize bias scores, perception gap metrics, and AI vs human comparison across demographic groups.",
       },
-      { property: "og:title", content: "Fairness Dashboard · PerceptionGap AI" },
+      { property: "og:title", content: "PerceptionGap" },
       {
         property: "og:description",
         content: "Bias detection charts and AI vs human fairness comparison.",
@@ -65,7 +57,9 @@ function DashboardPage() {
       {/* Header */}
       <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-sm font-medium text-muted-foreground">credit_decisions.csv · 12,480 rows</p>
+          <p className="text-sm font-medium text-muted-foreground">
+            credit_decisions.csv · 12,480 rows
+          </p>
           <h1 className="mt-1 text-3xl font-bold tracking-tight md:text-4xl">
             Fairness <span className="text-gradient-primary">dashboard</span>
           </h1>
@@ -125,9 +119,7 @@ function DashboardPage() {
             Human Approval Rate
           </div>
           <div className="mt-3 text-4xl font-bold">71.4%</div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            From 248 anonymized human auditors.
-          </p>
+          <p className="mt-2 text-sm text-muted-foreground">From 248 anonymized human auditors.</p>
           <div className="mt-4 flex items-center gap-1 text-sm text-success">
             <TrendingUp className="h-4 w-4" />
             Higher fairness across age groups
@@ -159,9 +151,24 @@ function DashboardPage() {
                     <stop offset="100%" stopColor="var(--color-chart-2)" stopOpacity={0.7} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={false} />
-                <XAxis dataKey="group" stroke="var(--color-muted-foreground)" fontSize={12} tickLine={false} axisLine={false} />
-                <YAxis stroke="var(--color-muted-foreground)" fontSize={12} tickLine={false} axisLine={false} />
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  stroke="var(--color-border)"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="group"
+                  stroke="var(--color-muted-foreground)"
+                  fontSize={12}
+                  tickLine={false}
+                  axisLine={false}
+                />
+                <YAxis
+                  stroke="var(--color-muted-foreground)"
+                  fontSize={12}
+                  tickLine={false}
+                  axisLine={false}
+                />
                 <Tooltip
                   cursor={{ fill: "var(--color-primary-soft)" }}
                   contentStyle={{
@@ -190,12 +197,18 @@ function DashboardPage() {
                 startAngle={210}
                 endAngle={-30}
               >
-                <RadialBar background={{ fill: "var(--color-muted)" }} dataKey="value" cornerRadius={20} />
+                <RadialBar
+                  background={{ fill: "var(--color-muted)" }}
+                  dataKey="value"
+                  cornerRadius={20}
+                />
               </RadialBarChart>
             </ResponsiveContainer>
             <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
               <span className="text-5xl font-bold text-gradient-primary">68</span>
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">moderate</span>
+              <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                moderate
+              </span>
             </div>
           </div>
         </div>
@@ -209,9 +222,24 @@ function DashboardPage() {
           <div className="mt-4 h-72 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={compareData} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={false} />
-                <XAxis dataKey="metric" stroke="var(--color-muted-foreground)" fontSize={12} tickLine={false} axisLine={false} />
-                <YAxis stroke="var(--color-muted-foreground)" fontSize={12} tickLine={false} axisLine={false} />
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  stroke="var(--color-border)"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="metric"
+                  stroke="var(--color-muted-foreground)"
+                  fontSize={12}
+                  tickLine={false}
+                  axisLine={false}
+                />
+                <YAxis
+                  stroke="var(--color-muted-foreground)"
+                  fontSize={12}
+                  tickLine={false}
+                  axisLine={false}
+                />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: "var(--color-card)",

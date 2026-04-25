@@ -1,3 +1,4 @@
+import React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
@@ -14,13 +15,13 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/results")({
   head: () => ({
     meta: [
-      { title: "Bias Results · PerceptionGap AI" },
+      { title: "PerceptionGap" },
       {
         name: "description",
         content:
           "Detailed bias verdict with AI reasoning and concrete suggestions to improve fairness.",
       },
-      { property: "og:title", content: "Bias Results · PerceptionGap AI" },
+      { property: "og:title", content: "PerceptionGap" },
       {
         property: "og:description",
         content: "AI explanation and fairness improvement recommendations.",
@@ -137,9 +138,9 @@ function ResultsPage() {
           </div>
 
           <p className="text-sm leading-relaxed text-foreground/90">
-            Using SHAP attributions across 12,480 decisions, PerceptionGap identified three
-            features driving the divergence between model output and human judgment. The pattern
-            is consistent across cross-validation folds and is unlikely to be sampling noise.
+            Using SHAP attributions across 12,480 decisions, PerceptionGap identified three features
+            driving the divergence between model output and human judgment. The pattern is
+            consistent across cross-validation folds and is unlikely to be sampling noise.
           </p>
 
           <div className="mt-5 space-y-3">
@@ -203,9 +204,7 @@ function ResultsPage() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-soft text-primary">
                   {s.icon}
                 </div>
-                <span className="text-xs font-mono text-muted-foreground">
-                  0{i + 1}
-                </span>
+                <span className="text-xs font-mono text-muted-foreground">0{i + 1}</span>
               </div>
               <div className="mt-4 flex items-center gap-2">
                 <h3 className="text-base font-semibold">{s.title}</h3>
@@ -256,9 +255,7 @@ function Tag({
       : tone === "warning"
         ? "bg-warning/15 text-foreground"
         : "bg-accent-soft text-accent-foreground";
-  return (
-    <span className={`rounded-full px-3 py-1 text-xs font-medium ${cls}`}>{children}</span>
-  );
+  return <span className={`rounded-full px-3 py-1 text-xs font-medium ${cls}`}>{children}</span>;
 }
 
 function ImpactBadge({ level }: { level: string }) {

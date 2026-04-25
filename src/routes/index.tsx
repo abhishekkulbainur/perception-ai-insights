@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState, useRef, type DragEvent, type ChangeEvent } from "react";
+import React, { useState, useRef, type DragEvent, type ChangeEvent } from "react";
 import {
   UploadCloud,
   FileSpreadsheet,
@@ -14,13 +14,13 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Upload Dataset · PerceptionGap AI" },
+      { title: "PerceptionGap" },
       {
         name: "description",
         content:
           "Upload a CSV dataset to scan for hidden bias in AI decisions and benchmark against human fairness.",
       },
-      { property: "og:title", content: "Upload Dataset · PerceptionGap AI" },
+      { property: "og:title", content: "PerceptionGap" },
       {
         property: "og:description",
         content: "Drop a CSV and let PerceptionGap AI analyze fairness across demographic slices.",
@@ -61,18 +61,18 @@ function UploadPage() {
   return (
     <main className="mx-auto max-w-7xl px-6 py-12">
       {/* Hero */}
-      <section className="mb-10 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary-soft px-4 py-1.5 text-xs font-medium text-primary">
-          <Sparkles className="h-3.5 w-3.5" />
-          Fairness audit, in seconds
-        </span>
-        <h1 className="mt-5 text-balance text-4xl font-bold tracking-tight md:text-5xl">
+      <section className="relative mb-12 text-center">
+        {/* Background Glows */}
+        <div className="absolute -top-24 left-1/2 -z-10 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-primary/10 blur-[100px]" />
+        <div className="absolute top-0 left-1/4 -z-10 h-[200px] w-[200px] rounded-full bg-accent/5 blur-[80px]" />
+
+        <h1 className="animate-in fade-in slide-in-from-bottom-4 duration-1000 mt-5 text-balance text-3xl font-bold tracking-tight md:text-5xl lg:text-6xl">
           Detect bias in <span className="text-gradient-primary">AI decisions</span>
           <br className="hidden md:block" /> measure the gap with humans.
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-balance text-base text-muted-foreground md:text-lg">
-          Upload a decision log and PerceptionGap AI surfaces hidden disparities, explains the
-          reasoning, and benchmarks model behavior against human fairness.
+        <p className="animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200 mx-auto mt-5 max-w-none text-muted-foreground text-sm md:text-base md:whitespace-nowrap">
+          Upload a decision log to surface bias, explain disparities, and benchmark against human
+          fairness.
         </p>
       </section>
 
@@ -177,7 +177,8 @@ function UploadPage() {
           <div>
             <h3 className="text-lg font-semibold">Dataset preview</h3>
             <p className="text-sm text-muted-foreground">
-              First 5 rows of <span className="font-medium text-foreground">credit_decisions.csv</span>
+              First 5 rows of{" "}
+              <span className="font-medium text-foreground">credit_decisions.csv</span>
             </p>
           </div>
           <Link to="/dashboard" className="text-sm font-medium text-primary hover:underline">
@@ -262,7 +263,9 @@ function FeatureCard({
         : "bg-info-soft text-info";
   return (
     <div className="glass-card rounded-2xl p-5 shadow-sm transition-shadow hover:shadow-elegant">
-      <div className={`mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl ${toneClass}`}>
+      <div
+        className={`mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl ${toneClass}`}
+      >
         {icon}
       </div>
       <h4 className="text-sm font-semibold">{title}</h4>
